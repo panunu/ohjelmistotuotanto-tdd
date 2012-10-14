@@ -1,26 +1,25 @@
 package tdd;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class GreeterTest {
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+        
+    private Greeter greeter;
     
     @Before
     public void setUp() {
+        greeter = new Greeter();
     }
     
-    @After
-    public void tearDown() {
+    @Test
+    public void greetReturnsHelloForSomeone() {
+        assertEquals("hello world", greeter.greet("world"));
+    }
+    
+    @Test
+    public void greetWithoutParamatersReturnsHelloStranger() {
+        assertEquals("hello stranger", greeter.greet());
     }
 }
